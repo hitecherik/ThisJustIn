@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<base href="http://this-just-in.tk/">
+	
+	<title>This Just In</title>
+	
+	<link rel="apple-touch-icon-precomposed" href="img/logo.png" />
+	<link rel="SHORTCUT ICON" href="img/logo.ico" />
+	
+	<link rel="stylesheet" href="css/vendor.css">
+	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700'>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lte IE 8]>
+		<link rel="stylesheet" href="css/ie8.css">
+	<![endif]-->
+	<!--[if lte IE 7]>
+		<link rel="stylesheet" href="css/ie7.css">
+	<![endif]-->
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/hyphenator.js"></script>
+	<script>
+		var IE = false,
+			currentTopic = "tc",
+			prevTopic = "";
+	</script>
+	<!--[if IE]>
+		<script>
+			IE = true;
+		</script>
+	<![endif]-->
+</head>
+<body>
+	<!--[if lte IE 8]>
+		<div class="ie-header">
+			Some features of this website may not work as you would expect them to. For the best possible experience, <a href="http://browsehappy.com">please upgrade to a more modern browser</a>.
+		</div>
+	<![endif]-->
+	
+	<div class="pure-g-r">
+		<div class="pure-u-1-5 sidebar">
+			<p class="logo-wrap"><a href="/" class="img-link"><img src="img/logo.jpg" alt="" width="130"></a></p>
+			
+			
+			<form action="" class="pure-form pure-form-stacked change-topic" method="get">
+				<fieldset>
+					<p class="center">
+						<select name="topic" class="center-child">
+							<option value="tn" >Top News</option>
+							<option value="n" >UK News</option>
+							<option value="w" >World News</option>
+							<option value="b" >Business</option>
+							<option value="tc" selected='selected'>Technology</option>
+							<option value="e" >Entertainment</option>
+							<option value="s" >Sports</option>
+							<option value="snc" >Science</option>
+							<option value="m" >Health</option>
+							<option value="ir" >Spotlight</option>
+							<option value="custom" class="custom-feed" >Custom RSS Feed</option>
+						</select>
+					</p>
+				</fieldset>
+			</form>
+
+						
+			<div class="desktop-only">
+				
+<div class="about-section">
+	<p>Built by <a href="http://hitecherik.net" target="_blank">@hitecherik</a> with the help of Pure CSS, jQuery, Bootstrap, Google News RSS Feeds, is.gd URL Shortener and Readability.</p>
+	<p>Copyright &copy; Alexander Nielsen, 2013.</p>
+</div>			</div>
+		</div>
+
+		<div class="pure-u-4-5 posts">
+			<p class="hyphenate" lang="en"><a href='read.php?url=http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNFz-AXa4G-vmy6QdgV5LV7YsPwXpw&url=http://www.idigitaltimes.co.uk/articles/496618/20130830/grand-theft-auto5-trailer-released-rumours-leaks.htm' target='_blank'><b>Rockstar Games Officially Unveils Grand Theft Auto 5 Trailer [VIDEO] - </b>iDigitalTimes.co.uk</a></p><p class="hyphenate" lang="en"><a href='read.php?url=http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNF9g3WZIsv2GbKrwKptbNOHsdqrgQ&url=http://news.sky.com/story/1135815' target='_blank'><b>EU May Order Speed-Limiters Fitted To UK Cars - </b>Sky News</a></p><p class="hyphenate" lang="en"><a href='read.php?url=http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNGNMNDIg1PbJKD21ZVqRwKfMdpMdQ&url=http://economictimes.indiatimes.com/tech/internet/british-telecom-giant-bt-says-bye-bye-to-dial-up-internet-service/articleshow/22208991.cms' target='_blank'><b>BT says bye-bye to dial-up Internet service - </b>Economic Times</a></p><p class="hyphenate" lang="en"><a href='read.php?url=http://news.google.com/news/url?sa=t&fd=R&usg=AFQjCNHppBN_ApjyLAaOx8yq0zFckdbW9g&url=http://www.thenewstribe.com/2013/09/02/samsung-galaxy-note-3-leaked-image-show-phablet-has-more-boxy-design/' target='_blank'><b>Samsung Galaxy Note 3 leaked image show Phablet has more boxy design - </b>News Tribe</a></p>		</div>
+	</div>
+	
+	<div class="mobile-only">
+		
+<div class="about-section">
+	<p>Built by <a href="http://hitecherik.net" target="_blank">@hitecherik</a> with the help of Pure CSS, jQuery, Bootstrap, Google News RSS Feeds, is.gd URL Shortener and Readability.</p>
+	<p>Copyright &copy; Alexander Nielsen, 2013.</p>
+</div>	</div>
+	
+	<div class="modal fade" id="rssCreate" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title">Add Custom RSS Feed</h2>
+				</div>
+				<div class="modal-body">
+												<p class="warning-text">Setting a custom RSS feed means that a <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">cookie</a> will be set in your browser. This cookie can only be accessed by this website for storing your RSS feeds. We do not store any of your cookie data on our servers.</p>
+										<form action="#" class="pure-form pure-form-aligned">
+						<fieldset>
+							<div class="pure-control-group">
+								<div class="error-text no-url"></div>
+								<label for="topic">RSS Feed URL:</label>
+								<input type="url" name="topic">
+							</div>
+							<div class="pure-controls">
+								<p><button type="submit" class="pure-button pure-button-primary">Add RSS Feed</button></p>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="pure-button close-rssCreate" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		
+	<script src="js/script.js"></script>
+		<!--[if IE 6]>
+		<script src="js/ie6.js"></script>
+	<![endif]-->
+	<script src="js/placeholders.min.js"></script>
+</body>
+</html>
