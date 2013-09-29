@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="css/vendor.css">
 	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700'>
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/vex.css">
+	<link rel="stylesheet" href="css/vex-theme-top.css">
 	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css"><![endif]-->
 	<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css"><![endif]-->
 	
@@ -20,15 +22,14 @@
 	<script src="js/modernizr.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/hyphenator.min.js"></script>
+	<script src="js/vex.combined.min.js"></script>
 	<script>
 		var IE = false,
 			currentTopic = "<?php echo ($_GET["topic"] ? $_GET["topic"] : "tn"); ?>",
-			prevTopic = "<?php echo $_GET["prevtopic"] . "\"" . ($custom_feed ? "," : ";") ?>
-		<?php if($custom_feed){ ?>
+			prevTopic = "<?php echo $_GET["prevtopic"]; ?>",
 			invalidFeed = <?php echo ($invalid_feed ? "true" : "false"); ?>;
-		<?php } ?>
 	</script>
-	<!--[if lte IE 6]><script>IE = true;</script><![endif]-->
+	<!--[if lte IE 8]><script>IE = true;</script><![endif]-->
 </head>
 <body>
 	<!--[if lte IE 8]>
@@ -93,68 +94,6 @@
 		<?php include "sidebar.php"; ?>
 	</div>
 	
-	<div class="modal" id="rssCreate" data-backdrop="static">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h2 class="modal-title">Add Custom RSS Feed</h2>
-				</div>
-				<div class="modal-body">
-					<?php if($invalid_feed){ ?>
-						<p class="error-text">The RSS feed you entered is not a valid XML document. Please enter a new feed URL.</p>
-					<?php } else { ?>
-							<p class="warning-text">Setting a custom RSS feed means that a <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">cookie</a> will be set in your browser. This cookie can only be accessed by this website for storing your RSS feeds. We do not store any of your cookie data on our servers.</p>
-					<?php } ?>
-					<form action="#" class="pure-form pure-form-aligned">
-						<fieldset>
-							<div class="pure-control-group">
-								<div class="error-text no-url"></div>
-								<label for="topic">RSS Feed URL:</label>
-								<input type="url" name="topic">
-							</div>
-							<div class="pure-controls">
-								<p><button type="submit" class="pure-button pure-button-primary">Add RSS Feed</button></p>
-							</div>
-						</fieldset>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="pure-button close-rssCreate" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<?php if($custom_feed){ ?>
-		<div class="modal" id="rssEdit" data-backdrop="static">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h2 class="modal-title">Edit Custom RSS Feed</h2>
-					</div>
-					<div class="modal-body">
-						<form action="#" class="pure-form pure-form-aligned">
-							<fieldset>
-								<div class="pure-control-group">
-									<div class="error-text no-url"></div>
-									<label for="topic">New RSS Feed URL:</label>
-									<input type="url" name="topic" value="<?php echo $custom_attr; ?>">
-								</div>
-								<div class="pure-controls">
-									<p><button type="submit" class="pure-button pure-button-primary">Change Custom Feed</button></p>
-									<p><button type="button" class="pure-button remove-feed">Remove Custom Feed</button></p>
-								</div>
-							</fieldset>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="pure-button" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	<?php } ?>
-	
 	<script src="js/script.js"></script>
 	<?php if($custom_feed){ ?>
 		<script src="js/custom_feed.js"></script>
@@ -163,6 +102,5 @@
 		<script src="js/ie6.js"></script>
 	<![endif]-->
 	<script src="js/placeholders.min.js"></script>
-        
 </body>
 </html>
