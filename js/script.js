@@ -1,32 +1,49 @@
 (function() {
 	Hyphenator.run();
 	vex.defaultOptions.className = "vex-theme-top";
-	
-	var topicMenu = $(".change-topic select");
-	
 	$(document).ready(function(){
 		setTimeout(function(){
 			window.scrollTo(0, 1);
 		}, 0);
 	});
 	
-	topicMenu.on("change", function(){
-		if(topicMenu.val()==="custom") {
-			vex.dialog.prompt({
-				message: "Please enter an RSS feed URL. <span class='warning-text'><b>Warning:</b> this sets a cookie.</span>",
-				placeholder: "RSS URL",
-				callback: function(data){
-					if(data && typeof data === "string"){
-						window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data) + "&prevtopic=" + currentTopic;
-					}
+	var topicMenu = $(".change-topic select");
+	
+	function customFeedDialog(message, topicVal, auxTopic){
+		vex.dialog.prompt({
+			message: "Please enter an RSS feed URL. " + message,
+			placeholder: "RSS URL",
+			callback: function(data){
+				if(data && typeof data === "string"){
+					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data) + "&prevtopic=" + currentTopic;
+				} else if(auxTopic) {
+					removeRSSFeed();
+					window.location.href = "http://this-just-in.tk/?topic=" + auxTopic;
 				}
-			});
-			
-			topicMenu.val(currentTopic);
+			}
+		});
+		
+		topicMenu.val(topicVal);
+	}
+	
+	function removeRSSFeed(){
+		$.get("remove_feed.php", function(){
+			window.location.href = "http://this-just-in.tk";
+		});
+	}
+	
+	topicMenu.on("change", function(){
+		if(topicMenu.val()==="custom") {			
+			customFeedDialog("<span class='warning-text'><b>Warning:</b> this sets a cookie.</span>", currentTopic);
 		} else {
 			window.location.href = "http://this-just-in.tk/?" + $(".change-topic").serialize() + "&prevtopic=" + currentTopic;
 		}
 	});
+	
+	if(invalidFeed){
+		currentTopic = prevTopic;
+		customFeedDialog("<span class='error-text'><b>Error:</b> you have entered an invalid feed.</span>", prevTopic, prevTopic);
+	}
 	
 	$("#rssEdit").on("click", function(){
 		vex.dialog.buttons.NO.text = "Remove RSS Feed";
@@ -38,9 +55,7 @@
 				if(data && typeof data === "string"){
 					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data) + "&prevtopic=" + currentTopic;
 				} else if(data===false) {
-					$.get("remove_feed.php", function(){
-						window.location.href = "http://this-just-in.tk";
-					});
+					removeRSSFeed();
 				} else {
 					topicMenu.val("tn");
 				}
@@ -49,6 +64,14 @@
 			}
 		})
 	});
+	
+	$(".search-news .close").on("click", function(){
+		$(this).parent().find("input").val("").get(0).focus();
+	});
+	
+	if(IE){
+		$(".posts a").attr("target", "_self");
+	}
 	
 	// old validation code
 	/* $("#rssCreate form, #rssEdit form").on("submit", function(e){
@@ -59,12 +82,4 @@
 			window.location.href = "http://this-just-in.tk/?" + $(this).serialize() + "&prevtopic=" + currentTopic;
 		}
 	}); */
-	
-	$(".search-news .close").on("click", function(){
-		$(this).parent().find("input").val("").get(0).focus();
-	});
-	
-	if(IE){
-		$(".posts a").attr("target", "_self");
-	}
 })();

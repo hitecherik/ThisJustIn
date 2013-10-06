@@ -95,12 +95,7 @@
 	</div>
 	
 	<script src="js/script.js"></script>
-	<?php if($custom_feed){ ?>
-		<script src="js/custom_feed.js"></script>
-	<?php } ?>
-	<!--[if IE 6]>
-		<script src="js/ie6.js"></script>
-	<![endif]-->
+	<!--[if IE 6]><script src="js/ie6.js"></script><![endif]-->
 	<script src="js/placeholders.min.js"></script>
 </body>
 </html>
