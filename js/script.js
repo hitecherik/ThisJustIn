@@ -50,6 +50,8 @@
 		
 		vex.dialog.prompt({
 			message: "Please enter a new RSS feed.",
+			escapeButtonCloses: false,
+			overlayClosesOnClick: false,
 			placeholder: decodeURIComponent(currentTopic),
 			callback: function(data){
 				if(data && typeof data === "string"){
