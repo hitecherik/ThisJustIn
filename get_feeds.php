@@ -12,7 +12,6 @@
 	$topic = $_GET["topic"];
 	$xml_feed;
 	$invalid_feed = false;
-	$feed_error = false;
 	$top_news = $topic=="tn" || $topic=="";
 	$search = ($top_news ? $_GET["q"] : "");
 	$custom_feed = (substr($topic, 0, 4)=="http");
@@ -20,6 +19,7 @@
 	$custom_name = "Custom RSS Feed";
 	$output = "";
 	$countries = array("IL"=>"en_il","MY"=>"en_my","PK"=>"en_pk","PH"=>"en_ph","SG"=>"en_sg","AE"=>"ar_ae","LB"=>"ar_lb","SA"=>"ar_sa","VN"=>"vi_vn","BE"=>"nl_be","BW"=>"en_bw","CZ"=>"cs_cz","ET"=>"en_et","GH"=>"en_gh","IE"=>"en_ie","KE"=>"en_ke","HU"=>"hu_hu","MA"=>"fr_ma","NA"=>"en_na","NL"=>"nl_nl","NG"=>"en_ng","NO"=>"no_no","AT"=>"de_at","PL"=>"pl_pl","PT"=>"pt-PT_pt","CH"=>"de_ch","SN"=>"fr_sn","ZA" =>"en_za","SE"=>"sv_se","TZ"=>"en_tz","TR"=>"tr_tr","UG"=>"en_ug","GB"=>"uk","ZW"=>"en_zw","EG"=>"ar_eg","GR"=>"el_gr","RU" =>"ru_ru","RS"=>"sr_rs","UA"=>"ru_ua","AR"=>"es_ar","BR"=>"pt-BR_br","CL"=>"es_cl","CO"=>"es_co","CU"=>"es_cu","MX"=>"es_mx","PE" =>"es_pe","VE"=>"es_ve");
+	$valid_topics = array("", "tn", "n", "w", "b", "tc", "e", "s", "snc", "m", "ir");
 	
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$country_code_xml = simplexml_load_file("http://api.ipinfodb.com/v3/ip-country/?key=521a9858ab8592d5146539471cdbf52d3335e7302e4f7799f543b340a569255b&format=xml&ip=$ip");
@@ -60,9 +60,11 @@
 		
 		if(!$xml_feed){
 			$output = "<div class='error-text'><p class='hyphenate' lang='en'>Unfortunately, the current feed could not be fetched. Please <a href='javascript:window.location.reload()'>refresh the page</a> or try again later.</p></div>";
+		} else if(!in_array($topic, $valid_topics)){
+			$invalid_feed = true;
 		}
 	}
-
+	
 	$articles = $xml_feed->channel[0]->item;
 	
 	for($i = 0; $i < 4; $i++){
