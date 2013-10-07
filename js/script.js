@@ -45,7 +45,7 @@
 		customFeedDialog("<span class='error-text'><b>Error:</b> you have entered an invalid feed.</span>", prevTopic, prevTopic);
 	}
 	
-	$("#rssEdit").on("click", function(){
+	$(".rssEdit").on("click", function(){
 		vex.dialog.buttons.NO.text = "Remove RSS Feed";
 		
 		vex.dialog.prompt({
@@ -56,8 +56,6 @@
 					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data) + "&prevtopic=" + currentTopic;
 				} else if(data===false) {
 					removeRSSFeed();
-				} else {
-					topicMenu.val("tn");
 				}
 				
 				vex.dialog.buttons.NO.text = "Cancel";

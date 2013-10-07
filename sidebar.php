@@ -1,5 +1,5 @@
 <?php if($custom_feed){ ?>
-	<p class="center"><button type="button" class="pure-button center-child" id="rssEdit">Edit RSS Feed</button></p>
+	<p class="center"><button type="button" class="pure-button center-child rssEdit">Edit RSS Feed</button></p>
 <?php } ?>
 
 <div class="about-section">
