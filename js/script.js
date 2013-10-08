@@ -10,15 +10,14 @@
 	var topicMenu = $(".change-topic select");
 	
 	function customFeedDialog(message, topicVal, auxTopic){
-		vex.dialog.prompt({
+		vex.dialog.open({
 			message: "Please enter an RSS feed URL. " + message,
-			placeholder: "RSS URL",
+			input: "<input type='url' name='rssurl' placeholder='RSS URL' required='required'>",
 			callback: function(data){
-				if(data && typeof data === "string"){
-					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data) + "&prevtopic=" + currentTopic;
+				if(data.rssurl && typeof data.rssurl === "string"){
+					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic;
 				} else if(auxTopic) {
-					removeRSSFeed();
-					window.location.href = "http://this-just-in.tk/?topic=" + auxTopic;
+					removeRSSFeed(auxTopic);
 				}
 			}
 		});
@@ -26,14 +25,18 @@
 		topicMenu.val(topicVal);
 	}
 	
-	function removeRSSFeed(){
+	function removeRSSFeed(topic){
 		$.get("remove_feed.php", function(){
-			window.location.href = "http://this-just-in.tk";
+			if(topic){
+				window.location.href = "http://this-just-in.tk/?topic=" + topic;
+			} else {
+				window.location.href = "http://this-just-in.tk";
+			}
 		});
 	}
 	
 	topicMenu.on("change", function(){
-		if(topicMenu.val()==="custom") {			
+		if(topicMenu.val() === "custom") {			
 			customFeedDialog("<span class='warning-text'><b>Warning:</b> this sets a cookie.</span>", currentTopic);
 		} else {
 			window.location.href = "http://this-just-in.tk/?" + $(".change-topic").serialize() + "&prevtopic=" + currentTopic;
@@ -48,15 +51,15 @@
 	$(".rssEdit").on("click", function(){
 		vex.dialog.buttons.NO.text = "Remove RSS Feed";
 		
-		vex.dialog.prompt({
+		vex.dialog.open({
 			message: "Please enter a new RSS feed.",
 			escapeButtonCloses: false,
 			overlayClosesOnClick: false,
-			placeholder: decodeURIComponent(currentTopic),
+			input: "<input type='url' name='rssurl' placeholder='" + decodeURIComponent(currentTopic) + "' required='required'>",
 			callback: function(data){
-				if(data && typeof data === "string"){
-					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data) + "&prevtopic=" + currentTopic;
-				} else if(data===false) {
+				if(data.rssurl && typeof data.rssurl === "string"){
+					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic;
+				} else if(data.rssurl === false) {
 					removeRSSFeed();
 				}
 				
