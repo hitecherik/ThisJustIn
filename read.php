@@ -27,11 +27,14 @@
 	
 	<link rel="stylesheet" href="css/vendor.css">
 	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700'>
+	<link rel="stylesheet" href="css/vex.css">
+	<link rel="stylesheet" href="css/vex-theme-top.css">
 	<link rel="stylesheet" href="css/style.css">
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/modernizr.min.js"></script>
+	<script src="js/vex.combined.min.js"></script>
 	<script>
 		var IE = false,
 			article = {
@@ -66,11 +69,12 @@
 			<a href="http://readability.com/save?url=<?php echo $rddme; ?>" class="pure-button readability-button pure-button-custom" role="button" target="_blank">Save to Readability</a>
 			<a href="http://twitter.com/intent/tweet?url=<?php echo urlencode($isgd); ?>&text=<?php echo urlencode($title); ?>&related=hitecherik%3AThis+Just+In+creator" target="_blank" class="pure-button pure-button-custom tweet-button" role="button">Tweet</a>
 			<a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $isgd; ?>" target="_blank" class="pure-button facebook-button pure-button-custom" role="button">Share on Facebook</a>
-			<a href="#mailSend" class="pure-button" data-toggle="modal" role="button">Send by Email</a>
+			<!--<a href="#mailSend" class="pure-button" data-toggle="modal" role="button">Send by Email</a>-->
+			<button class="pure-button" id="mailSend">Send by Email</button>
 		</p>
 	</div>
 	
-	<div class="modal fade" id="mailSend" data-backdrop="static">
+	<!--<div class="modal fade" id="mailSend" data-backdrop="static">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -106,8 +110,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 	
 	<script src="js/read.js"></script>
+	<script src="js/placeholders.min.js"></script>
 </body>
 </html>

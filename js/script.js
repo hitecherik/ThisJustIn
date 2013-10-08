@@ -75,14 +75,4 @@
 	if(IE){
 		$(".posts a").attr("target", "_self");
 	}
-	
-	// old validation code
-	/* $("#rssCreate form, #rssEdit form").on("submit", function(e){
-		e.preventDefault();
-		if($(this).find("input[name=topic]").val()===""){
-			$(".no-url").empty().append("<p>You have not entered a URL. You need to enter a URL to view your RSS feed.</p>");
-		} else {
-			window.location.href = "http://this-just-in.tk/?" + $(this).serialize() + "&prevtopic=" + currentTopic;
-		}
-	}); */
 })();
