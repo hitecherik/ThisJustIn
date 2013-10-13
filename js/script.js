@@ -21,6 +21,8 @@
 					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic;
 				} else if(auxTopic) {
 					removeRSSFeed(auxTopic);
+				} else {
+					topicMenu.val(currentTopic);
 				}
 			},
 			afterOpen: function(){
