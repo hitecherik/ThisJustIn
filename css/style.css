@@ -90,6 +90,11 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
     background: rgb(59,89,152);
 }
 
+/* == remove the important */
+.rss-remove-button, .vex-rss-remove .vex-dialog-button-primary {
+	background: rgb(202, 60, 60) !important;
+}
+
 .inline-form select {
     margin-right: 10px;
 }
@@ -116,6 +121,10 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
 
 .center {
     margin: 0;
+}
+
+.center:not(:first-child) {
+	margin-top: 12px;
 }
 
 .center-child, .search-news input[type=text], .change-topic select {

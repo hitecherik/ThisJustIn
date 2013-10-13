@@ -19,6 +19,11 @@
 				} else if(auxTopic) {
 					removeRSSFeed(auxTopic);
 				}
+			},
+			afterOpen: function(){
+				if(IE){
+					$(".vex-content input").blur();
+				}
 			}
 		});
 		
@@ -48,9 +53,7 @@
 		customFeedDialog("<span class='error-text'><b>Error:</b> you have entered an invalid feed.</span>", prevTopic, prevTopic);
 	}
 	
-	$(".rssEdit").on("click", function(){
-		vex.dialog.buttons.NO.text = "Remove RSS Feed";
-		
+	$(".rssEdit").on("click", function(){		
 		vex.dialog.open({
 			message: "Please enter a new RSS feed.",
 			escapeButtonCloses: false,
@@ -59,13 +62,23 @@
 			callback: function(data){
 				if(data.rssurl && typeof data.rssurl === "string"){
 					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic;
-				} else if(data.rssurl === false) {
-					removeRSSFeed();
 				}
 				
 				vex.dialog.buttons.NO.text = "Cancel";
 			}
 		})
+	});
+	
+	$(".rssRemove").on("click", function(){
+		vex.dialog.confirm({
+			message: "Are you sure you want to remove this RSS feed? <span class='warning-text'>This action is not reversable.</span>",
+			className: "vex-rss-remove vex-theme-top",
+			callback: function(data){
+				if(data){
+					removeRSSFeed();
+				}
+			}
+		});
 	});
 	
 	$(".search-news .close").on("click", function(){
