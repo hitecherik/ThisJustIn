@@ -29,7 +29,7 @@
 			prevTopic = "<?php echo $_GET["prevtopic"]; ?>",
 			invalidFeed = <?php echo ($invalid_feed ? "true" : "false"); ?>;
 	</script>
-	<!--[if lte IE 8]><script>IE = true;</script><![endif]-->
+	<!--[if lte IE 9]><script>IE = true;</script><![endif]-->
 </head>
 <body>
 	<!--[if lte IE 8]>
