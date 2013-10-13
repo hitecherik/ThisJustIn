@@ -1,5 +1,7 @@
 <?php
 	include "get_feeds.php";
+	
+	$ie10 = strpos(get_browser(), "MSIE 10") == false;
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,7 +26,7 @@
 	<script src="js/hyphenator.min.js"></script>
 	<script src="js/vex.combined.min.js"></script>
 	<script>
-		var IE = false,
+		var IE = <?php echo ($ie10 ? "true" : "false"); ?>,
 			currentTopic = "<?php echo ($_GET["topic"] ? $_GET["topic"] : "tn"); ?>",
 			prevTopic = "<?php echo $_GET["prevtopic"]; ?>",
 			invalidFeed = <?php echo ($invalid_feed ? "true" : "false"); ?>;

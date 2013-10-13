@@ -5,7 +5,10 @@
 		setTimeout(function(){
 			window.scrollTo(0, 1);
 		}, 0);
-	});
+	});	
+	if(IE){
+		$(".posts a").attr("target", "_self");
+	}
 	
 	var topicMenu = $(".change-topic select");
 	
@@ -23,6 +26,8 @@
 			afterOpen: function(){
 				if(IE){
 					$(".vex-content input").blur();
+				} else {
+					$(".vex-content input").first().focus();
 				}
 			}
 		});
@@ -56,15 +61,18 @@
 	$(".rssEdit").on("click", function(){		
 		vex.dialog.open({
 			message: "Please enter a new RSS feed.",
-			escapeButtonCloses: false,
-			overlayClosesOnClick: false,
 			input: "<input type='url' name='rssurl' placeholder='" + decodeURIComponent(currentTopic) + "' required='required'>",
 			callback: function(data){
 				if(data.rssurl && typeof data.rssurl === "string"){
 					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic;
 				}
-				
-				vex.dialog.buttons.NO.text = "Cancel";
+			},
+			afterOpen: function(){
+				if(IE){
+					$(".vex-content input").blur();
+				} else {
+					$(".vex-content input").first().focus();
+				}
 			}
 		})
 	});
@@ -84,8 +92,4 @@
 	$(".search-news .close").on("click", function(){
 		$(this).parent().find("input").val("").get(0).focus();
 	});
-	
-	if(IE){
-		$(".posts a").attr("target", "_self");
-	}
 })();
