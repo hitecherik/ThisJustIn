@@ -168,6 +168,11 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
         margin: 10px 10px 10px 0;
         max-width: 50%;
     }
+    /* == remember to add iframe rule */
+    .article-content img.even-img {
+        float: right;
+	margin: 10px 0 10px 10px;
+    }
 }
 
 @media (max-width:850px) {

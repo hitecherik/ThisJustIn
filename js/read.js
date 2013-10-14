@@ -6,6 +6,14 @@
 			window.scrollTo(0, 1);
 		}, 0);
 	});
+
+	var allImgs = $(".article-content img").get();
+	for(var i = 0; i < Math.ceil(allImgs.length/2); i++){
+		var j = (i * 2) + 1;
+
+		$(allImgs[j]).addClass("even-img");
+	}
+
 	
 	$(".finished-reading").on("click", function(){
 		if(IE || shared){
