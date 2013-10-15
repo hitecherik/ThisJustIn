@@ -19,7 +19,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	
+	<meta name="apple-mobile-wep-app-capable" content="yes">
 	<title><?php echo $title; ?> :: This Just In</title>
 	
 	<link rel="apple-touch-icon-precomposed" href="/img/logo.jpg" />

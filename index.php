@@ -8,10 +8,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
+	<meta name="apple-mobile-web-app-capable" content="yes">
 	<title>This Just In <?php echo ($top_news && $search ? "($search)" : ""); ?></title>
 	
-	<link rel="apple-touch-icon-precomposed" href="img/logo.png" />
-	<link rel="shortcut icon" href="img/logo.ico" />
+	<!-- 320x460 for iPhone 3GS, iPod touch --> <link rel="apple-touch-startup-image" sizes="320x460" href="img/startup-320.png">
+	<!-- iPad Portrait 768x1004 --> <link rel="apple-touch-startup-image" sizes="768x1004" href="img/startup-768.png">
+	<!-- iPad Landscape 1024x748 --> <link rel="apple-touch-startup-image" sizes="1024x748" href="img/startup-1024.png">
+
+	<link rel="apple-touch-icon-precomposed" href="img/logo.png">
+	<link rel="shortcut icon" href="img/logo.ico">
 	<link rel="stylesheet" href="css/vendor.css">
 	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700'>
 	<link rel="stylesheet" href="css/vex.css">
