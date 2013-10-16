@@ -11,8 +11,8 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<title>This Just In <?php echo ($top_news && $search ? "($search)" : ""); ?></title>
 	
-	<!-- iPhone --> <link href="img/startup-320.png" media="(device-width: 320px) and (device-height: 460px)" rel="apple-touch-startup-image">
-        <!-- iPhone (Retina) --> <link href="img/startup-640.png" media="(device-width: 320px) and (device-height: 460px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<!-- iPhone --> <link href="img/startup/320.png" media="(device-width: 320px) and (device-height: 460px)" rel="apple-touch-startup-image">
+        <!-- iPhone (Retina) --> <link href="img/startup/640.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
         <!-- iPad (portrait) --> <link href="img/startup/768.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
         <!-- iPad (landscape) --> <link href="img/startup/1024.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
         <!-- iPad (Retina, portrait) --> <link href="img/startup/1536.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
