@@ -108,6 +108,10 @@
 	<div class="mobile-only">
 		<?php include "sidebar.php"; ?>
 	</div>
+
+	<div class="loader">
+		Loading...
+	</div>
 	
 	<script src="js/script.js"></script>
 	<!--[if IE 6]><script src="js/ie6.js"></script><![endif]-->

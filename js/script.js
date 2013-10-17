@@ -1,24 +1,39 @@
 (function() {
+	var topicMenu = $(".change-topic select"),
+		loader = $(".loader");
+	
 	Hyphenator.run();
+
 	vex.defaultOptions.className = "vex-theme-top";
+	
 	$(document).ready(function(){
 		setTimeout(function(){
 			window.scrollTo(0, 1);
 		}, 0);
 	});	
+	
 	if(IE || navigator.standalone){
 		$(".posts a").attr("target", "_self");
 	}
 	
-	var topicMenu = $(".change-topic select");
+	$(window).on("resize", function(){
+		if($(window).width()>767){
+			loader.css({
+				top: ($(window).height() / 2) - (loader.height() / 2),
+				left: ($(window).width() / 2) - (loader.width() / 2)
+			});
+		}
+	});
 	
+	$(window).trigger("resize");
+
 	function customFeedDialog(message, topicVal, auxTopic){
 		vex.dialog.open({
 			message: "Please enter an RSS feed URL. " + message,
 			input: "<input type='url' name='rssurl' placeholder='RSS URL' required='required'>",
 			callback: function(data){
 				if(data.rssurl && typeof data.rssurl === "string"){
-					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic;
+					changePage("http://this-just-in.tk/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic);
 				} else if(auxTopic) {
 					removeRSSFeed(auxTopic);
 				} else {
@@ -40,18 +55,29 @@
 	function removeRSSFeed(topic){
 		$.get("remove_feed.php", function(){
 			if(topic){
-				window.location.href = "http://this-just-in.tk/?topic=" + topic;
+				changePage("http://this-just-in.tk/?topic=" + topic);
 			} else {
-				window.location.href = "http://this-just-in.tk";
+				changePage("http://this-just-in.tk");
 			}
 		});
+	}
+
+	function displayLoader(){
+		if(navigator.standalone){
+			loader.show();
+		}
+	}
+
+	function changePage(url){
+		window.location.href = url;
+		displayLoader();
 	}
 	
 	topicMenu.on("change", function(){
 		if(topicMenu.val() === "custom") {			
 			customFeedDialog("<span class='warning-text'><b>Warning:</b> this sets a cookie.</span>", currentTopic);
 		} else {
-			window.location.href = "http://this-just-in.tk/?" + $(".change-topic").serialize() + "&prevtopic=" + currentTopic;
+			changePage("http://this-just-in.tk/?" + $(".change-topic").serialize() + "&prevtopic=" + currentTopic);
 		}
 	});
 	
@@ -66,7 +92,7 @@
 			input: "<input type='url' name='rssurl' placeholder='" + decodeURIComponent(currentTopic) + "' required='required'>",
 			callback: function(data){
 				if(data.rssurl && typeof data.rssurl === "string"){
-					window.location.href = "http://this-just-in.tk/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic;
+					changePage("http://this-just-in.tk/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic);
 				}
 			},
 			afterOpen: function(){
@@ -93,5 +119,9 @@
 	
 	$(".search-news .close").on("click", function(){
 		$(this).parent().find("input").val("").get(0).focus();
+	});
+
+	$("a").on("click", function(){
+		displayLoader();
 	});
 })();
