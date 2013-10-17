@@ -6,7 +6,7 @@
 			window.scrollTo(0, 1);
 		}, 0);
 	});	
-	if(IE){
+	if(IE || navigator.standalone){
 		$(".posts a").attr("target", "_self");
 	}
 	

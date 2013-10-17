@@ -16,8 +16,8 @@
 
 	
 	$(".finished-reading").on("click", function(){
-		if(IE || shared){
-			window.location.href = "http://this-just-in.tk/";
+		if(IE || shared || navigator.standalone){
+			window.location.href = "http://this-just-in.tk/?topic=" + backTopic;
 		} else {
 			window.close();
 		}

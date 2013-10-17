@@ -85,6 +85,6 @@
 			$new_title .= $article_title . "</b>";
 		}
 		
-		$output .= "<p class='hyphenate' lang='en'><a href='read.php?url=$link' target='_blank'>$new_title</a></p>";
+		$output .= "<p class='hyphenate' lang='en'><a href='read.php?topic=$topic&url=$link' target='_blank'>$new_title</a></p>";
 	}
 ?>

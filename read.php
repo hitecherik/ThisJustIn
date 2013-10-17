@@ -1,6 +1,7 @@
 <?php
 	$url = $_GET["url"];
 	$shared = ($_GET["shared"] ? $_GET["shared"] : "false");
+	$back_topic = $_GET["topic"];
 	
 	$readability = simplexml_load_file("https://www.readability.com/api/content/v1/parser?url=$url&token=9920ba4fb3dd2e28e5f04994d322c6ef81b21e7b&format=xml");
 	
@@ -22,8 +23,8 @@
 	<meta name="apple-mobile-wep-app-capable" content="yes">
 	<title><?php echo $title; ?> :: This Just In</title>
 	
-	<link rel="apple-touch-icon-precomposed" href="/img/logo.jpg" />
-	<link rel="SHORTCUT ICON" href="img/logo.ico" />
+	<link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
+	<link rel="SHORTCUT ICON" href="img/logo.ico">
 	
 	<link rel="stylesheet" href="css/vendor.css">
 	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700'>
@@ -42,7 +43,8 @@
 				url: "<?php echo $isgd; ?>",
 				title: "<?php echo str_replace('"', '\\"', $title); ?>"
 			},
-			shared = <?php echo $shared; ?>;
+			shared = <?php echo $shared; ?>,
+			backTopic = "<?php echo $back_topic; ?>";
 	</script>
 	<!--[if lte IE 6]><script>IE = true;</script><![endif]-->
 </head>
