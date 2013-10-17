@@ -8,19 +8,21 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
+	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<title>This Just In <?php echo ($top_news && $search ? "($search)" : ""); ?></title>
 	
 	<!-- iPhone --> <link href="img/startup/320.png" media="(device-width: 320px) and (device-height: 460px)" rel="apple-touch-startup-image">
-        <!-- iPhone (Retina) --> <link href="img/startup/640.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+        <!-- iPhone (retina) --> <link href="img/startup/640.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
         <!-- iPad (portrait) --> <link href="img/startup/768.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
         <!-- iPad (landscape) --> <link href="img/startup/1024.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
-        <!-- iPad (Retina, portrait) --> <link href="img/startup/1536.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-	<!-- iPad (Retina, landscape) --> <link href="img/startup/2048.png" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+        <!-- iPad (retina portrait) --> <link href="img/startup/1536.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<!-- iPad (retina landscape) --> <link href="img/startup/2048.png" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 
 	<link rel="apple-touch-icon-precomposed" href="img/logo.png">
 	<link rel="shortcut icon" href="img/logo.ico">
+
 	<link rel="stylesheet" href="css/vendor.css">
 	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700'>
 	<link rel="stylesheet" href="css/vex.css">
@@ -39,6 +41,8 @@
 			currentTopic = "<?php echo ($_GET["topic"] ? $_GET["topic"] : "tn"); ?>",
 			prevTopic = "<?php echo $_GET["prevtopic"]; ?>",
 			invalidFeed = <?php echo ($invalid_feed ? "true" : "false"); ?>;
+
+		navigator.standalone = navigator.standalone || (screen.height - document.documentElement.clientHeight < 40);
 	</script>
 	<!--[if lte IE 9]><script>IE = true;</script><![endif]-->
 </head>
