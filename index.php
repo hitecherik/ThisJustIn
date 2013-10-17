@@ -78,8 +78,8 @@
 			</form>
 
 			<?php if($top_news){ ?>
-			<form action="#" class="pure-form pure-form-stacked search-news">
-				<fieldset>							
+				<form action="#" class="pure-form pure-form-stacked search-news">
+					<fieldset>							
 						<p class="center">						
 							<input class="center-child" name="q" type="text" placeholder="Search" value="<?php echo $search; ?>">
 							<span class="close center-child">&times;</span>
