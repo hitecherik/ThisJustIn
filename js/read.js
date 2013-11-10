@@ -1,4 +1,7 @@
 (function() {
+	var allImgs = $(".article-content img").get(),
+		loader = $(".loader");
+
 	vex.defaultOptions.className = "vex-theme-top";
 
 	$(document).ready(function(){
@@ -7,17 +10,43 @@
 		}, 0);
 	});
 
-	var allImgs = $(".article-content img").get();
 	for(var i = 0; i < Math.ceil(allImgs.length/2); i++){
 		var j = (i * 2) + 1;
 
 		$(allImgs[j]).addClass("even-img");
 	}
 
+	$(window).on("resize", function(){
+		if($(window).width()>767){
+			loader.css({
+				top: ($(window).height() / 2) - (loader.height() / 2),
+				left: ($(window).width() / 2) - (loader.width() / 2)
+			});
+		} else {
+			loader.css({
+				top: 0,
+				left: 0
+			});
+		}
+	});
+
+	$(window).trigger("resize");
+
+
+	function displayLoader(){
+		if(navigator.standalone){
+			loader.show();
+		}
+	}
+
+	function changePage(url){
+		window.location.href = url;
+		displayLoader();
+	}
 	
 	$(".finished-reading").on("click", function(){
 		if(IE || shared || navigator.standalone){
-			window.location.href = "http://this-just-in.tk/?topic=" + backTopic;
+			changePage("http://tji.eu5.org/?topic=" + backTopic);
 		} else {
 			window.close();
 		}
@@ -54,10 +83,7 @@
 		});
 	});
 	
-	if(!Modernizr.touch){
-		$("#mailSend").on("shown.bs.modal", function(){
-			var firstInput = $(this).find("input").first().get()[0];
-			firstInput.focus();
-		});
-	}
+	$("a").on("click", function(){
+		displayLoader();
+	});
 })();

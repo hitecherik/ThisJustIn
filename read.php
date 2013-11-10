@@ -13,7 +13,7 @@
 	
 	$excerpt = $readability->excerpt;
 	
-	$isgd = simplexml_load_file("http://is.gd/create.php?format=xml&callback=?&url=" . urlencode("this-just-in.tk/read.php?shared=true&url=$real_url"))->shorturl;
+	$isgd = simplexml_load_file("http://is.gd/create.php?format=xml&callback=?&url=" . urlencode("tji.eu5.org/read.php?shared=true&url=$real_url"))->shorturl;
 ?>
 <!doctype html>
 <html>
@@ -57,7 +57,7 @@
 
 		navigator.standalone = navigator.standalone || (screen.height - document.documentElement.clientHeight < 40);
 	</script>
-	<!--[if lte IE 6]><script>IE = true;</script><![endif]-->
+	<!--[if lte IE 9]><script>IE = true;</script><![endif]-->
 </head>
 <body class="read-page">
 	<p class="logo-wrap"><a href="/" class="img-link"><img src="img/logo.jpg" alt="" width="130"></a></p>
@@ -86,6 +86,10 @@
 		</p>
 	</div>
 	
+	<div class="loader">
+		Loading...
+	</div>
+
 	<script src="js/read.js"></script>
 	<script src="js/placeholders.min.js"></script>
 </body>

@@ -152,6 +152,20 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
     display: none;
 }
 
+.settings-control {
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.chevron {
+	font-size: 75%;
+}
+
+.settings {
+	display: none;
+}
+
 @media (max-width:500px) {
     body:not(.mobile-read) {
         margin-bottom: 10px;

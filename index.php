@@ -14,10 +14,10 @@
 	<title>This Just In <?php echo ($top_news && $search ? "($search)" : ""); ?></title>
 	
 	<!-- iPhone --> <link href="img/startup/320.png" media="(device-width: 320px) and (device-height: 460px)" rel="apple-touch-startup-image">
-        <!-- iPhone (retina) --> <link href="img/startup/640.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-        <!-- iPad (portrait) --> <link href="img/startup/768.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
-        <!-- iPad (landscape) --> <link href="img/startup/1024.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
-        <!-- iPad (retina portrait) --> <link href="img/startup/1536.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <!-- iPhone (retina) --> <link href="img/startup/640.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <!-- iPad (portrait) --> <link href="img/startup/768.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
+    <!-- iPad (landscape) --> <link href="img/startup/1024.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
+    <!-- iPad (retina portrait) --> <link href="img/startup/1536.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 	<!-- iPad (retina landscape) --> <link href="img/startup/2048.png" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 
 	<link rel="apple-touch-icon-precomposed" href="img/logo.png">
@@ -80,20 +80,6 @@
 					</p>
 				</fieldset>
 			</form>
-
-			<?php if($top_news){ ?>
-				<form action="#" class="pure-form pure-form-stacked search-news">
-					<fieldset>							
-						<p class="center">						
-							<input class="center-child" name="q" type="text" placeholder="Search" value="<?php echo $search; ?>">
-							<span class="close center-child">&times;</span>
-						</p>
-						<p class="center">
-							<button type="submit" class="center-child pure-button pure-button-primary">Search</button>
-						</p>
-					</fieldset>
-				</form>
-			<?php } ?>
 			
 			<div class="desktop-only">
 				<?php include "sidebar.php"; ?>
@@ -106,6 +92,7 @@
 	</div>
 	
 	<div class="mobile-only">
+		<hr>
 		<?php include "sidebar.php"; ?>
 	</div>
 

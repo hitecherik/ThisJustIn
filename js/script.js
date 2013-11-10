@@ -1,6 +1,7 @@
 (function() {
 	var topicMenu = $(".change-topic select"),
-		loader = $(".loader");
+		loader = $(".loader"),
+		settingsStatus = false;
 	
 	Hyphenator.run();
 
@@ -38,7 +39,7 @@
 			input: "<input type='url' name='rssurl' placeholder='RSS URL' required='required'>",
 			callback: function(data){
 				if(data.rssurl && typeof data.rssurl === "string"){
-					changePage("http://this-just-in.tk/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic);
+					changePage("http://tji.eu5.org/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic);
 				} else if(auxTopic) {
 					removeRSSFeed(auxTopic);
 				} else {
@@ -60,9 +61,9 @@
 	function removeRSSFeed(topic){
 		$.get("remove_feed.php", function(){
 			if(topic){
-				changePage("http://this-just-in.tk/?topic=" + topic);
+				changePage("http://tji.eu5.org/?topic=" + topic);
 			} else {
-				changePage("http://this-just-in.tk");
+				changePage("http://tji.eu5.org");
 			}
 		});
 	}
@@ -82,7 +83,7 @@
 		if(topicMenu.val() === "custom") {			
 			customFeedDialog("<span class='warning-text'><b>Warning:</b> this sets a cookie.</span>", currentTopic);
 		} else {
-			changePage("http://this-just-in.tk/?" + $(".change-topic").serialize() + "&prevtopic=" + currentTopic);
+			changePage("http://tji.eu5.org/?" + $(".change-topic").serialize() + "&prevtopic=" + currentTopic);
 		}
 	});
 	
@@ -97,7 +98,7 @@
 			input: "<input type='url' name='rssurl' placeholder='" + decodeURIComponent(currentTopic) + "' required='required'>",
 			callback: function(data){
 				if(data.rssurl && typeof data.rssurl === "string"){
-					changePage("http://this-just-in.tk/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic);
+					changePage("http://tji.eu5.org/?topic=" + encodeURIComponent(data.rssurl) + "&prevtopic=" + currentTopic);
 				}
 			},
 			afterOpen: function(){
@@ -107,7 +108,7 @@
 					$(".vex-content input").first().focus();
 				}
 			}
-		})
+		});
 	});
 	
 	$(".rssRemove").on("click", function(){
@@ -125,8 +126,29 @@
 	$(".search-news .close").on("click", function(){
 		$(this).parent().find("input").val("").get(0).focus();
 	});
+	
+	$(".settings-control").on("click", function(){
+		var $this = $(this);
+		$this.next(".settings").slideToggle();
+		$this.find(".chevron").fadeOut(function(){
+			var chevron = $this.find(".chevron").empty();
+			
+			if(settingsStatus){
+				chevron.append("&#x25BC;").fadeIn();
+				console.log("first");
+			} else {
+				chevron.append("&#x25B2;").fadeIn();
+				console.log(chevron.html());
+			}
+			
+			settingsStatus = !settingsStatus;
+		});
+	});
 
-	$("a").on("click", function(){
-		displayLoader();
+	$("a").on("click", function(e){
+		if(navigator.standalone){
+			e.preventDefault();
+			changePage($(this).attr("href"));
+		}
 	});
 })();

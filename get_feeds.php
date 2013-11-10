@@ -32,12 +32,12 @@
 	}
 	
 	if(isset($_COOKIE["TJI-CUSTOM-FEED"])){
-		setcookie("TJI-CUSTOM-FEED", $_COOKIE["TJI-CUSTOM-FEED"], time() + 31536000, "/", "this-just-in.tk");
+		setcookie("TJI-CUSTOM-FEED", $_COOKIE["TJI-CUSTOM-FEED"], time() + 31536000, "/", "tji.eu5.org");
 		$custom_attr = urldecode($_COOKIE["TJI-CUSTOM-FEED"]);
 	}
 	
 	if(isset($_COOKIE["TJI-CUSTOM-NAME"])){
-		setcookie("TJI-CUSTOM-NAME", $_COOKIE["TJI-CUSTOM-NAME"], time() + 31536000, "/", "this-just-in.tk");
+		setcookie("TJI-CUSTOM-NAME", $_COOKIE["TJI-CUSTOM-NAME"], time() + 31536000, "/", "tji.eu5.org");
 		$custom_name = get_custom_name(urldecode($_COOKIE["TJI-CUSTOM-NAME"]));
 	}
 	
@@ -47,9 +47,9 @@
 	
 	if($custom_feed){
 		$xml_feed = simplexml_load_file($topic);
-		setcookie("TJI-CUSTOM-FEED", $topic, time() + 31536000, "/", "this-just-in.tk");
+		setcookie("TJI-CUSTOM-FEED", $topic, time() + 31536000, "/", "tji.eu5.org");
 		$custom_name = $xml_feed->channel[0]->title;
-		setcookie("TJI-CUSTOM-NAME", $custom_name, time() + 31536000, "/", "this-just-in.tk");
+		setcookie("TJI-CUSTOM-NAME", $custom_name, time() + 31536000, "/", "tji.eu5.org");
 		$custom_name = get_custom_name($custom_name);
 		
 		if(!$xml_feed){
