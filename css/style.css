@@ -144,26 +144,30 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
     opacity: 0.7;
     font-size: 30px;
     padding: 20px 30px;
-    border-radius: 10px;
     font-weight: bold;
     position: fixed;
     top: 0;
     left: 0;
     display: none;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .settings-control {
-	text-align: center;
-	font-weight: bold;
-	cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .chevron {
-	font-size: 75%;
+    font-size: 75%;
 }
 
 .settings {
-	display: none;
+    display: none;
 }
 
 @media (max-width:500px) {
@@ -222,17 +226,6 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
 @media (max-width:767px) {
     .desktop-only {
         display: none;
-    }
-    
-    .loader {
-        top: 0;
-        left: 0;
-        width: 100%;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -ms-box-sizing: border-box;
-        box-sizing: border-box;
-        border-radius: 0;
     }
 }
 

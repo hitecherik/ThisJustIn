@@ -17,22 +17,6 @@
 		$(".posts a").attr("target", "_self");
 	}
 	
-	$(window).on("resize", function(){
-		if($(window).width()>767){
-			loader.css({
-				top: ($(window).height() / 2) - (loader.height() / 2),
-				left: ($(window).width() / 2) - (loader.width() / 2)
-			});
-		} else {
-			loader.css({
-				top: 0,
-				left: 0
-			});
-		}
-	});
-	
-	$(window).trigger("resize");
-
 	function customFeedDialog(message, topicVal, auxTopic){
 		vex.dialog.open({
 			message: "Please enter an RSS feed URL. " + message,
