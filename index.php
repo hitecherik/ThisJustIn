@@ -4,7 +4,7 @@
 	$ie10 = strpos(get_browser(), "MSIE 10") != false;
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" <?php echo (rand(0,1)==1 ? "class='rocks'" : ""); ?>>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
@@ -30,6 +30,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css"><![endif]-->
 	<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css"><![endif]-->
+	<!--[if !IE]> --><link rel="stylesheet" href="css/bg.css"><!-- <![endif]-->
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="js/modernizr.min.js"></script>
@@ -55,7 +56,7 @@
 	
 	<div class="pure-g-r">
 		<div class="pure-u-1-5 sidebar">
-			<p class="logo-wrap"><a href="/" class="img-link"><img src="img/logo.jpg" alt="" width="130"></a></p>
+			<p class="logo-wrap"><a href="/" class="img-link"><img src="img/logo-transparent.png" alt=""></a></p>
 			
 			<form action="" class="pure-form pure-form-stacked change-topic" method="get">
 				<fieldset>
