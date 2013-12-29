@@ -90,7 +90,7 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
     background: rgb(59,89,152);
 }
 
-/* == remove the important */
+/* == remove the !important */
 .rss-remove-button, .vex-rss-remove .vex-dialog-button-primary {
 	background: rgb(202, 60, 60) !important;
 }
@@ -170,6 +170,19 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
     display: none;
 }
 
+/* == remove the !important */
+.github {
+	display: block;
+	width: 149px;
+	height: 149px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+	color: transparent !important;
+	background-image: url(https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png);
+}
+
 @media (max-width:500px) {
     body:not(.mobile-read) {
         margin-bottom: 10px;
@@ -199,6 +212,7 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
         margin: 10px 10px 10px 0;
         max-width: 50%;
     }
+	
     /* == remember to add iframe rule */
     .article-content img.even-img {
         float: right;
@@ -207,10 +221,34 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
 }
 
 @media (max-width:850px) {
-    body:not(.mobile-read) {
+    body {
         width: 100%;
         padding: 0 10px;
     }
+	
+	html:not(.read-page) .github {
+        opacity: 0.75;
+    }
+}
+
+@media (min-width:851px) {
+    html:not(.read-page) { 
+        background: url(http://oi41.tinypic.com/5b5qpk.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    html:not(.read-page) body {
+        background: rgba(227, 227, 227, 0.8);
+        padding: 0 5px 5px 5px;
+        border-radius: 10px;
+    }
+	
+	html:not(.read-page) .github {
+		background-image: url(https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png);
+	}
 }
 
 @media (min-width:768px) and (max-width:1186px) {

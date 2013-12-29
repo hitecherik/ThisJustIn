@@ -16,7 +16,7 @@
 	$isgd = simplexml_load_file("http://is.gd/create.php?format=xml&callback=?&url=" . urlencode("tji.eu5.org/read.php?shared=true&url=$real_url"))->shorturl;
 ?>
 <!doctype html>
-<html>
+<html lang="en" class="read-page">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
@@ -59,7 +59,9 @@
 	</script>
 	<!--[if lte IE 9]><script>IE = true;</script><![endif]-->
 </head>
-<body class="read-page">
+<body>
+	<a href="https://github.com/hitecherik/ThisJustIn" target="_blank" class="github img-link" title="Fork me on GitHub">Fork me on GitHub</a>
+
 	<p class="logo-wrap"><a href="/" class="img-link"><img src="img/logo.jpg" alt="" width="130"></a></p>
 	
 	<h1 class="article-title center"><?php echo $title; ?></h1>

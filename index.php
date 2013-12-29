@@ -54,6 +54,8 @@
 		</div>
 	<![endif]-->
 	
+	<a href="https://github.com/hitecherik/ThisJustIn" target="_blank" class="github img-link" title="Fork me on GitHub">Fork me on GitHub</a>
+	
 	<div class="pure-g-r">
 		<div class="pure-u-1-5 sidebar">
 			<p class="logo-wrap"><a href="/" class="img-link"><img src="img/logo-transparent.png" alt=""></a></p>
