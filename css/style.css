@@ -225,10 +225,6 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
         width: 100%;
         padding: 0 10px;
     }
-	
-	html:not(.read-page) .github {
-        opacity: 0.75;
-    }
 }
 
 @media (min-width:851px) {
@@ -249,6 +245,12 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
 	html:not(.read-page) .github {
 		background-image: url(https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png);
 	}
+}
+
+@media (min-width:768px) and (max-width:850px) {
+	html:not(.read-page) .github {
+        opacity: 0.75;
+    }
 }
 
 @media (min-width:768px) and (max-width:1186px) {
