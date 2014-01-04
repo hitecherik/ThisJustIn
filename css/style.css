@@ -183,6 +183,10 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
 	background-image: url(https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png);
 }
 
+.background-visibility fieldset {
+	padding: 0;
+}
+
 @media (max-width:500px) {
     body:not(.mobile-read) {
         margin-bottom: 10px;
@@ -228,7 +232,7 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
 }
 
 @media (min-width:851px) {
-    html:not(.read-page) { 
+    html:not(.read-page):not(.bg-invisible) { 
         background: url(http://oi41.tinypic.com/5b5qpk.jpg) no-repeat center center fixed; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -236,13 +240,13 @@ a:not(.pure-button):not(.img-link):hover, a:not(.pure-button):not(.img-link):foc
         background-size: cover;
     }
 
-    html:not(.read-page) body {
+    html:not(.read-page):not(.bg-invisible) body {
         background: rgba(227, 227, 227, 0.8);
         padding: 0 5px 5px 5px;
         border-radius: 10px;
     }
 	
-	html:not(.read-page) .github {
+	html:not(.read-page):not(.bg-invisible) .github {
 		background-image: url(https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png);
 	}
 }

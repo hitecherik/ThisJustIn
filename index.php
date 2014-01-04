@@ -1,10 +1,24 @@
 <?php
 	include "get_feeds.php";
 	
+	$backgroundVisibleString = $_GET["backgroundvisible"];
+	
+	if($backgroundVisibleString =="background-visible" || $backgroundVisibleString=="background-invisible"){
+		setcookie("TJI-BACKGROUND-VISIBLE", $backgroundVisibleString, time() + 31536000, "/", "tji.eu5.org");
+	} else if(isset($_COOKIE["TJI-BACKGROUND-VISIBLE"])){
+		setcookie("TJI-BACKGROUND-VISIBLE", $_COOKIE["TJI-BACKGROUND-VISIBLE"], time() + 31536000, "/", "tji.eu5.org");
+		$backgroundVisibleString = $_COOKIE["TJI-BACKGROUND-VISIBLE"];
+	} else {
+		setcookie("TJI-BACKGROUND-VISIBLE", "background-visible", time() + 31536000, "/", "tji.eu5.org");
+		$backgroundVisibleString = "background-visible";
+	}
+	
+	$backgroundVisible = $backgroundVisibleString=="background-visible";
+	
 	$ie10 = strpos(get_browser(), "MSIE 10") != false;
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" <?php if(!$backgroundVisible){ ?>class="bg-invisible"<?php } ?>>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
@@ -28,6 +42,13 @@
 	<link rel="stylesheet" href="css/vex.css">
 	<link rel="stylesheet" href="css/vex-theme-top.css">
 	<link rel="stylesheet" href="css/style.css">
+	<style>
+		@media (max-width:850px) {
+			<?php echo (!$top_news && !$custom_feed ? ".settings-control, .settings" : ".background-visibility"); ?> {
+				display: none;
+			}
+		}
+	</style>
 	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css"><![endif]-->
 	<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css"><![endif]-->
 	<!--[if !IE]> --><link rel="stylesheet" href="css/bg.css"><!-- <![endif]-->
@@ -44,6 +65,10 @@
 			invalidFeed = <?php echo ($invalid_feed ? "true" : "false"); ?>;
 
 		navigator.standalone = navigator.standalone || (screen.height - document.documentElement.clientHeight < 40);
+		
+		$(document).ready(function(){
+			$(".desktop-only input.background-visible").val([<?php echo ($backgroundVisible ? "\"bg-check\"" : ""); ?>]);
+		});
 	</script>
 	<!--[if lte IE 9]><script>IE = true;</script><![endif]-->
 </head>

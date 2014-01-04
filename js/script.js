@@ -1,7 +1,8 @@
 (function() {
 	var topicMenu = $(".change-topic select"),
 		loader = $(".loader"),
-		settingsStatus = false;
+		settingsStatus = false,
+		bgVisibleInput = $(".desktop-only input.background-visible");
 	
 	Hyphenator.run();
 
@@ -63,6 +64,11 @@
 		displayLoader();
 	}
 	
+	function yesNoButtons(yes, no){
+		vex.dialog.buttons.YES.text = yes;
+		vex.dialog.buttons.NO.text = no;
+	}
+	
 	topicMenu.on("change", function(){
 		if(topicMenu.val() === "custom") {			
 			customFeedDialog("<span class='warning-text'><b>Warning:</b> this sets a cookie.</span>", currentTopic);
@@ -96,10 +102,13 @@
 	});
 	
 	$(".rssRemove").on("click", function(){
+		yesNoButtons("Yes", "No");
+		
 		vex.dialog.confirm({
 			message: "Are you sure you want to remove this RSS feed? <span class='warning-text'>This action is not reversable.</span>",
 			className: "vex-rss-remove vex-theme-top",
 			callback: function(data){
+				yesNoButtons("OK", "Cancel");
 				if(data){
 					removeRSSFeed();
 				}
@@ -134,5 +143,32 @@
 			e.preventDefault();
 			changePage($(this).attr("href"));
 		}
+	});
+	
+	bgVisibleInput.on("change", function(){
+		var message = "Are you sure you want to turn the background image ",
+			checked = $(".desktop-only input.background-visible").is(":checked");
+		
+		if(checked){
+			message += "on?";
+		} else {
+			message += "off?";
+		}
+		
+		yesNoButtons("Yes", "No");
+		
+		vex.dialog.confirm({
+			message: message,
+			callback: function(data){
+				yesNoButtons("OK", "Cancel");
+				if(data){
+					changePage("http://tji.eu5.org/?topic=" + currentTopic + "&prevtopic=" + prevTopic + "&backgroundvisible=" + (checked ? "background-visible" : "background-invisible"));
+				} else if(checked) {
+					bgVisibleInput.val([]);
+				} else {
+					bgVisibleInput.val(["bg-check"]);
+				}
+			}
+		});
 	});
 })();

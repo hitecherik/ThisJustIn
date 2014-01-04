@@ -1,4 +1,3 @@
-<?php if($top_news || $custom_feed){ ?>
 <div class="settings-control">
 	Settings <span class="chevron">&#x25BC;</span>
 </div>
@@ -21,9 +20,16 @@
 		<p class="center"><button type="button" class="pure-button center-child rssEdit">Edit RSS Feed</button></p>
 		<p class="center"><button type="button" class="pure-button center-child pure-button-custom rss-remove-button rssRemove">Remove RSS Feed</button></p>
 	<?php } ?>
+	
+	<form action="#" method="get" class="pure-form background-visibility">
+		<fieldset>
+			<div class="center">
+				<input type="checkbox" class="background-visible center-child" name="backgroundvisible" value="bg-check" <?php if($backgroundVisible){ ?>checked="checked"<?php } ?>>
+				<label for="backgroundvisible" class="background-visible center-child"> Background</label>
+			</div>
+		</fieldset>
+	</form>
 </div>
-
-<?php } ?>
 
 <div class="about-section">
 	<p>Read the four latest stories from any of our 10 news sections, or add your own custom RSS feed!</p>
