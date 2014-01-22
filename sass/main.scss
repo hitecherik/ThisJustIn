@@ -1,0 +1,273 @@
+// imports
+@import "_vendor.scss"; // vendor files
+@import "_variables.scss"; // variables
+
+html:not(.read-page) {
+	body {
+		@extend %common_body;
+	}
+	.github {
+		@media (min-width:851px) {
+	      	background-image: url(https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png);
+	    }
+	    @media (min-width:768px) and (max-width:850px) {
+	    	opacity: 0.75;
+	    }
+	}
+	&:not(.bg-invisible) {
+		@media (min-width:851px) {
+			background: url(http://oi41.tinypic.com/5b5qpk.jpg) no-repeat center center fixed; 
+	        -webkit-background-size: cover;
+	        -moz-background-size: cover;
+	        -o-background-size: cover;
+	        background-size: cover;
+	        body {
+				background: rgba(227, 227, 227, 0.8);
+		        padding: 0 5px 5px 5px;
+		        border-radius: 10px;
+	        }
+    	}
+	}
+}
+
+.read-page {
+	body {
+		@extend %common_body;
+	}
+}
+
+blockquote {
+	@extend %common_type;
+}
+
+p {
+	&:not(.logo-wrap) {
+		@extend %common_type;
+	}
+}
+
+@for $i from 1 through 4 {
+	h#{$i} {
+		line-height: normal;
+	}
+}
+
+a {
+	&:not(.pure-button):not(.img-link) {
+		color: $link_color;
+		border-bottom: 1px dotted $link_color;
+		text-decoration: none;
+		transition: all 0.3s;
+		&:hover, &:focus {
+			color: $link_hover_color;
+			border-bottom-color: $link_hover_color;
+			outline: none;
+		}
+	}
+}
+
+.article-content {
+	img, iframe {
+		border-radius: 3px;
+		display: block;
+		@media (max-width:500px) {
+			max-width: 90%;
+		}
+		@media (min-width:501px) {
+			float: left;
+			margin: 10px 10px 10px 0;
+			max-width: 49%;
+			&.even-img {
+				float: right;
+				margin: 10px 0 10px 10px;
+			}
+		}
+	}
+}
+
+.article-author {
+	font-size: 18px;
+}
+
+.article-title {
+	@media (max-width:500px) {
+		text-align: left;
+	}
+}
+
+.posts {
+	p {
+		&:nth-child(1) {
+			@include posts(50, 70);
+		}
+		&:nth-child(2) {
+			@include posts(40, 50);
+		}
+		&:nth-child(3) {
+			@include posts(30, 35);
+		}
+		&:nth-child(4) {
+			@include posts(20);
+		}
+	}
+}
+
+.sidebar {
+	margin-top: 45px;
+	padding-right: 15px;
+}
+
+.change-topic {
+	optgroup {
+		color: #979797;
+		font-style: normal;
+		font-weight: normal;
+	}
+	option {
+		color: black;
+	}
+}
+
+.readability-button {
+	@include custom_button(rgb(134,0,0));
+}
+
+.tweet-button {
+	@include custom_button(rgb(0,172,237));
+}
+
+.facebook-button {
+	@include custom_button(rgb(59,89,152));
+}
+
+.rss-remove-button {
+	@include custom_button($rss_remove_color, important);
+}
+
+.vex-rss-remove .vex-dialog-button-primary {
+	background: $rss_remove_color !important;
+}
+
+.inline-form select {
+	margin-right: 10px;
+}
+
+.search-news {
+	.center:first-child {
+		input {
+			max-width: 90%;
+		}
+		.close {
+			max-width: 10%;
+		}
+	}
+	input[type=text] {
+		display: inline;
+	}
+}
+
+.logo-wrap {
+	text-align: center;
+}
+
+.controls {
+	a, button {
+		margin-bottom: 5px;
+	}
+	p {
+		@extend .logo-wrap;
+	}
+}
+
+.center {
+	@extend .logo-wrap;
+	margin: 0;
+	&:not(:first-child) {
+		margin-top: 12px;
+	}
+	.center-child {
+		display: none;
+	}
+}
+
+.error-text {
+	color: #b94a48;
+}
+
+.warning-text {
+	color: #c09853;
+}
+
+.loader {
+    background: #e3e3e3;
+    opacity: 0.7;
+    font-size: 30px;
+    padding: 20px 30px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.chevron {
+	font-size: 75%;
+}
+
+.settings-control {
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.settings {
+	display: none;
+}
+
+.github {
+	display: block;
+	width: 149px;
+	height: 149px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+	color: transparent !important;
+	background-image: url(https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png);
+}
+
+.background-visibility fieldset {
+	padding: 0;
+}
+
+.pure-u-1-5 {
+	@media (max-width:500px) {
+		padding: 0;
+	}
+	@media (min-width:768px) and (max-width:1186px) {
+		width: 25%;
+	}
+}
+
+@media (min-width:768px) and (max-width:1186px) {
+	.pure-u-4-5 {
+			width: 75%;
+	}
+}
+
+@media (max-width:767px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+@media (min-width:768px) {
+    .mobile-only {
+        display: none;
+    }
+}

@@ -1,0 +1,37 @@
+$link_color: #4d4dff;
+$link_hover_color: #0000b3;
+$rss_remove_color: rgb(202, 60, 60);
+
+%common_type {
+	font-size: 16px;
+	line-height: 30px;
+}
+
+%common_body {
+	width: 75%;
+    margin: -10px auto 0 auto;
+    font-family: 'Quattrocento Sans', sans-serif;
+    @extend %common_type;
+    @media (max-width:850px) {
+    	width: 100%;
+    	padding: 0 10px;
+    }
+    @media (max-width:500px) {
+    	margin-bottom: 10px;
+    }
+}
+
+@mixin custom_button($background, $importance: unimportant) {
+    color: white;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    @if $importance == important {
+        background: $background !important;
+    } @else {
+        background: $background;
+    }
+}
+
+@mixin posts($font_size, $line_height: 30) {
+    font-size: #{$font_size}px;
+    line-height: #{$line_height}px;
+}
