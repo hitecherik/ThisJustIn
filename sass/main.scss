@@ -2,14 +2,16 @@
 @import "_vendor.scss"; // vendor files
 @import "_variables.scss"; // variables
 
+* {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 html:not(.read-page) {
 	body {
 		@extend %common_body;
 	}
 	.github {
-		@media (min-width:851px) {
-	      	background-image: url(https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png);
-	    }
 	    @media (min-width:768px) and (max-width:850px) {
 	    	opacity: 0.75;
 	    }
@@ -25,6 +27,9 @@ html:not(.read-page) {
 				background: rgba(227, 227, 227, 0.8);
 		        padding: 0 5px 5px 5px;
 		        border-radius: 10px;
+	        }
+	        .github {
+	        	background-image: url(https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png);
 	        }
     	}
 	}
@@ -186,7 +191,7 @@ a {
 		margin-top: 12px;
 	}
 	.center-child {
-		display: none;
+		display: inline;
 	}
 }
 
@@ -253,10 +258,9 @@ a {
 		width: 25%;
 	}
 }
-
-@media (min-width:768px) and (max-width:1186px) {
-	.pure-u-4-5 {
-			width: 75%;
+.pure-u-4-5 {
+	@media (min-width:768px) and (max-width:1186px) {
+		width: 75%;
 	}
 }
 

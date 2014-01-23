@@ -37,11 +37,8 @@
 	<link rel="apple-touch-icon-precomposed" href="img/logo.png">
 	<link rel="shortcut icon" href="img/logo.ico">
 
-	<link rel="stylesheet" href="css/vendor.css">
 	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700'>
-	<link rel="stylesheet" href="css/vex.css">
-	<link rel="stylesheet" href="css/vex-theme-top.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/main.css">
 	<style>
 		@media (max-width:850px) {
 			<?php echo (!$top_news && !$custom_feed ? ".settings-control, .settings" : ".background-visibility"); ?> {
@@ -51,7 +48,6 @@
 	</style>
 	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css"><![endif]-->
 	<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css"><![endif]-->
-	<!--[if !IE]> --><link rel="stylesheet" href="css/bg.css"><!-- <![endif]-->
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="js/modernizr.min.js"></script>
