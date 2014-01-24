@@ -36,12 +36,10 @@
 	<link rel="shortcut icon" href="img/logo.ico">
 
 	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700'>
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/main.min.css">
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/modernizr.min.js"></script>
-	<script src="js/vex.combined.min.js"></script>
+	<script src="js/vendor.min.js"></script>
 	<script>
 		var IE = false,
 			article = {
@@ -89,7 +87,6 @@
 		Loading...
 	</div>
 
-	<script src="js/read.js"></script>
-	<script src="js/placeholders.min.js"></script>
+	<script src="js/read.min.js"></script>
 </body>
 </html>

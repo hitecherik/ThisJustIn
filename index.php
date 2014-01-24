@@ -50,10 +50,8 @@
 	</style>
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script src="js/modernizr.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/hyphenator.min.js"></script>
-	<script src="js/vex.combined.min.js"></script>
+	<script src="js/vendor.min.js"></script>
+	<!--[if IE 6]><script src="js/ie6.min.js"></script><![endif]-->
 	<script>
 		var IE = <?php echo ($ie10 ? "true" : "false"); ?>,
 			currentTopic = "<?php echo ($_GET["topic"] ? $_GET["topic"] : "tn"); ?>",
@@ -124,8 +122,6 @@
 		Loading...
 	</div>
 	
-	<script src="js/script.js"></script>
-	<!--[if IE 6]><script src="js/ie6.js"></script><![endif]-->
-	<script src="js/placeholders.min.js"></script>
+	<script src="js/index.min.js"></script>
 </body>
 </html>
