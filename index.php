@@ -38,9 +38,9 @@
 	<link rel="shortcut icon" href="img/logo.ico">
 
 	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700'>
-	<comment><link rel="stylesheet" href="css/main.css"></comment> <!-- removes text in IE 8 and below -->
-	<!--[if IE 8]><link rel="stylesheet" href="css/ie8.css"><![endif]-->
-	<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css"><![endif]-->
+	<comment><link rel="stylesheet" href="css/main.min.css"></comment> <!-- removes text in IE 8 and below -->
+	<!--[if IE 8]><link rel="stylesheet" href="css/ie8.min.css"><![endif]-->
+	<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.min.css"><![endif]-->
 	<style>
 		@media (max-width:850px) {
 			<?php echo (!$top_news && !$custom_feed ? ".settings-control, .settings" : ".background-visibility"); ?> {
