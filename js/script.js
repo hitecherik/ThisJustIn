@@ -128,10 +128,8 @@
 			
 			if(settingsStatus){
 				chevron.append("&#x25BC;").fadeIn();
-				console.log("first");
 			} else {
 				chevron.append("&#x25B2;").fadeIn();
-				console.log(chevron.html());
 			}
 			
 			settingsStatus = !settingsStatus;

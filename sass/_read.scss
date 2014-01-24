@@ -1,0 +1,59 @@
+.read-page {
+	body {
+		@extend %common_body;
+	}
+}
+
+blockquote {
+	@extend %common_type;
+}
+
+.article-content {
+	img, iframe {
+		border-radius: 3px;
+		display: block;
+		@media (max-width:500px) {
+			max-width: 90%;
+		}
+		@media (min-width:501px) {
+			float: left;
+			margin: 10px 10px 10px 0;
+			max-width: 49%;
+			&.even-img {
+				float: right;
+				margin: 10px 0 10px 10px;
+			}
+		}
+	}
+}
+
+.article-author {
+	font-size: 18px;
+}
+
+.article-title {
+	@media (max-width:500px) {
+		text-align: left;
+	}
+}
+
+.readability-button {
+	@include custom_button(rgb(134,0,0));
+}
+
+.tweet-button {
+	@include custom_button(rgb(0,172,237));
+}
+
+.facebook-button {
+	@include custom_button(rgb(59,89,152));
+}
+
+.controls {
+	a, button {
+		margin-bottom: 5px;
+	}
+	p {
+		@extend .logo-wrap;
+	}
+}

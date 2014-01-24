@@ -1,0 +1,28 @@
+@import "main.scss";
+
+.posts p:first-child {
+	@include posts(50, 70);
+	& + p {
+		@include posts(40, 50);
+		& + p {
+			@include posts(30, 35);
+			& + p {
+				@include posts(20);
+			}
+		}
+	}
+}
+
+.ie-header {
+	background: #e3e3e3;
+	font-weight: bold;
+	padding: 10px 5px;
+}
+
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: block;
+}

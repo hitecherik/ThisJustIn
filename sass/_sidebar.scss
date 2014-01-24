@@ -1,0 +1,51 @@
+.sidebar {
+	margin-top: 45px;
+	padding-right: 15px;
+}
+
+.change-topic {
+	optgroup {
+		color: #979797;
+		font-style: normal;
+		font-weight: normal;
+	}
+	option {
+		color: black;
+	}
+}
+
+.rss-remove-button {
+	@include custom_button($rss_remove_color, important);
+}
+
+.search-news {
+	.center:first-child {
+		input {
+			max-width: 90%;
+		}
+		.close {
+			max-width: 10%;
+		}
+	}
+	input[type=text] {
+		display: inline;
+	}
+}
+
+.chevron {
+	font-size: 75%;
+}
+
+.settings-control {
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.settings {
+	display: none;
+}
+
+.background-visibility fieldset {
+	padding: 0;
+}
