@@ -1,7 +1,7 @@
 @import "_vendor.scss"; // vendor files
 @import "_variables.scss"; // variables
 
-@import "_global.scss"; // global styles
-@import "_index.scss"; // index.php styles
-@import "_sidebar.scss"; // sidebar.php styles
-@import "_read.scss"; // read.php styles
+@import "pages/_global.scss"; // global styles
+@import "pages/_index.scss"; // index.php styles
+@import "pages/_sidebar.scss"; // sidebar.php styles
+@import "pages/_read.scss"; // read.php styles
